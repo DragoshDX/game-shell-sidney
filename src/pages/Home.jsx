@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Button } from '../components/common/ui';
 import { Layout } from '../layouts';
 
 export const Home = () => {
@@ -7,7 +8,7 @@ export const Home = () => {
       <div className="container mx-auto px-4">
         <h1>HOMEPAGE</h1>
         <Link to="/play" title="Play a game">
-          Play
+          <Button element="span">Play</Button>
         </Link>
       </div>
     </Layout>
