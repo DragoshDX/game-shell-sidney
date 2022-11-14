@@ -3,6 +3,7 @@ import store from '../store';
 import { setUser } from '../store/actions/authActions';
 
 let initialized = false;
+const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 export const initializeGoogleAuth = async () => {
   return new Promise((resolve) => {
@@ -13,8 +14,7 @@ export const initializeGoogleAuth = async () => {
     window.addEventListener('load', () => {
       /* global google */
       google.accounts.id.initialize({
-        client_id:
-          '813474181975-bgktal91iji7tjultll3n1iof9trdc9t.apps.googleusercontent.com',
+        client_id: clientId,
         callback: (response) => {
           const {
             given_name: firstName,
