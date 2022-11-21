@@ -31,6 +31,11 @@ export const profileReducer = (state = initialState, action) => {
         ...state,
         creature: payload,
       };
+    case 'auth/setUserStats':
+      return {
+        ...state,
+        stats: payload,
+      };
     default:
       return state;
   }

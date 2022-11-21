@@ -18,7 +18,7 @@ export const setCreatureColor = (targetKey, colorValue) => {
 };
 
 export const createUserProfile = (id) => {
-  return async (dispatch, getState) => {
+  return async (_, getState) => {
     const state = getState();
     const { profile } = state;
 
