@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../common/ui';
-import { setCreatureColor } from './../../store/actions/profileActions/profileActions';
+import {
+  setCreatureColor,
+  updateUserProfile,
+} from './../../store/actions/profileActions/profileActions';
 
 export const ProfileForm = () => {
   const dispatch = useDispatch();
@@ -8,6 +11,14 @@ export const ProfileForm = () => {
     const { mainColor, eyeColor, secondaryColor } = profile.creature;
 
     return { mainColor, eyeColor, secondaryColor };
+  });
+
+  const { userId } = useSelector(({ auth }) => {
+    const { user } = auth;
+
+    return {
+      userId: user.id,
+    };
   });
 
   const onColorPickerChange = (event) => {
@@ -20,6 +31,14 @@ export const ProfileForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    dispatch(
+      updateUserProfile(userId, {
+        mainColor,
+        eyeColor,
+        secondaryColor,
+      }),
+    );
   };
 
   return (
