@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Button } from '../components/common/ui';
+import { Button, Dialog } from '../components/common/ui';
 import { AuthorizedLayout, Layout } from '../layouts';
 import { deleteUserProfile } from '../store/actions/profileActions/profileActions';
 import { Creature, ProfileForm, UserProfile } from './../components/profile';
 
 export const Profile = () => {
   const dispatch = useDispatch();
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   return (
     <Layout>
@@ -36,13 +38,18 @@ export const Profile = () => {
               title="Delete profile"
               type="button"
               onClick={() => {
-                dispatch(deleteUserProfile());
+                // dispatch(deleteUserProfile());
+                setShowConfirmDialog(true);
               }}
             >
               Delete profile
             </Button>
           </section>
         </div>
+
+        <Dialog show={showConfirmDialog}>
+          <p>Are you sure you want to delete your profile?</p>
+        </Dialog>
       </AuthorizedLayout>
     </Layout>
   );
