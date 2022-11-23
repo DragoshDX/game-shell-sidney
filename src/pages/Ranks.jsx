@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../components/common/ui';
+import { MemoedRankLine as RankLine } from '../components/users/RankLine';
 import { Layout } from '../layouts';
 import { modifyRandomUser, readUsers } from '../store/actions/usersActions';
 
@@ -25,14 +26,7 @@ export const Ranks = () => {
           {users.length > 0 ? (
             <ul className="border rounded-md  shadow">
               {users.map((user) => {
-                const { id, stats } = user;
-
-                return (
-                  <li key={id} className="border-b p-3">
-                    {id}
-                    Games won: {stats.gamesWon}
-                  </li>
-                );
+                return <RankLine user={user} key={user.id}></RankLine>;
               })}
             </ul>
           ) : (
