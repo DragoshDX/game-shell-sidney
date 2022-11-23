@@ -47,8 +47,30 @@ export const Profile = () => {
           </section>
         </div>
 
-        <Dialog show={showConfirmDialog}>
+        <Dialog
+          show={showConfirmDialog}
+          onClose={() => {
+            setShowConfirmDialog(false);
+          }}
+        >
           <p>Are you sure you want to delete your profile?</p>
+
+          <div className="flex justify-between mt-6">
+            <Button type="button" title="Delete Profile" skin="danger">
+              Delete
+            </Button>
+
+            <Button
+              type="button"
+              title="Cancel"
+              skin="primaryInverted"
+              onClick={() => {
+                setShowConfirmDialog(false);
+              }}
+            >
+              Cancel
+            </Button>
+          </div>
         </Dialog>
       </AuthorizedLayout>
     </Layout>
