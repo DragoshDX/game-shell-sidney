@@ -38,7 +38,6 @@ export const Profile = () => {
               title="Delete profile"
               type="button"
               onClick={() => {
-                // dispatch(deleteUserProfile());
                 setShowConfirmDialog(true);
               }}
             >
@@ -56,7 +55,14 @@ export const Profile = () => {
           <p>Are you sure you want to delete your profile?</p>
 
           <div className="flex justify-between mt-6">
-            <Button type="button" title="Delete Profile" skin="danger">
+            <Button
+              type="button"
+              title="Delete Profile"
+              skin="danger"
+              onClick={() => {
+                dispatch(deleteUserProfile());
+              }}
+            >
               Delete
             </Button>
 
