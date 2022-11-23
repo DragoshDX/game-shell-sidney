@@ -14,3 +14,9 @@ export const setUsers = (payload) => {
     payload,
   };
 };
+
+export const modifyRandomUser = () => {
+  return {
+    type: 'users/modifyRandomUser',
+  };
+};

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '../components/common/ui';
 import { Layout } from '../layouts';
-import { readUsers } from '../store/actions/usersActions';
+import { modifyRandomUser, readUsers } from '../store/actions/usersActions';
 
 export const Ranks = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,16 @@ export const Ranks = () => {
           ) : (
             <></>
           )}
+
+          <div className="mt-4">
+            <Button
+              onClick={() => {
+                dispatch(modifyRandomUser());
+              }}
+            >
+              Chnage
+            </Button>
+          </div>
         </main>
       </div>
     </Layout>
